@@ -2,19 +2,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@400;700&display=swap');
 
 :root {
-	--blackbg: #0B0B0B;
-	--surface: #111111;
-	--muted: #E6E6E6;
-	--white: #FFFFFF;
-	--border-color: #1f1f1f;
+	/** Base colors */
+	--clr-dark-a0: #000000;
+	--clr-light-a0: #ffffff;
+
+	/** Theme primary colors */
+	--clr-primary-a0: #501d32;
+	--clr-primary-a10: #633446;
+	--clr-primary-a20: #764b5a;
+	--clr-primary-a30: #896370;
+	--clr-primary-a40: #9c7b86;
+	--clr-primary-a50: #b0949d;
+
+	/** Theme surface colors */
+	--clr-surface-a0: #121212;
+	--clr-surface-a10: #282828;
+	--clr-surface-a20: #3f3f3f;
+	--clr-surface-a30: #575757;
+	--clr-surface-a40: #717171;
+	--clr-surface-a50: #8b8b8b;
+
+	/** Theme tonal surface colors */
+	--clr-surface-tonal-a0: #191415;
+	--clr-surface-tonal-a10: #2e292a;
+	--clr-surface-tonal-a20: #444041;
+	--clr-surface-tonal-a30: #5c5859;
+	--clr-surface-tonal-a40: #757272;
+	--clr-surface-tonal-a50: #8f8c8d;
+
+	/** Success colors */
+	--clr-success-a0: #22946e;
+	--clr-success-a10: #47d5a6;
+	--clr-success-a20: #9ae8ce;
+
+	/** Warning colors */
+	--clr-warning-a0: #a87a2a;
+	--clr-warning-a10: #d7ac61;
+	--clr-warning-a20: #ecd7b2;
+
+	/** Danger colors */
+	--clr-danger-a0: #9c2121;
+	--clr-danger-a10: #d94a4a;
+	--clr-danger-a20: #eb9e9e;
+
+	/** Info colors */
+	--clr-info-a0: #21498a;
+	--clr-info-a10: #4077d1;
+	--clr-info-a20: #92b2e5;
+
 	--font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 	--font-serif: 'Playfair Display', serif;
+
+	--muted: var(--clr-surface-a50);
+	--white: var(--clr-light-a0);
+	--border-color: var(--clr-surface-a20);
 }
 
 /* Basic page reset */
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
+
+
 html, body, #root { height: 100%; margin: 0; }
-body { font-family: var(--font-sans); background: var(--blackbg); color: var(--white); }
+
+body {
+	font-family: var(--font-sans);
+	background: var(--clr-surface-a0);
+	color: var(--muted);
+	font-size: 16px;
+	line-height: 1.6;
+	min-height: 100vh;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 
 /* Typography */
 .font-serif { font-family: var(--font-serif); }
@@ -64,26 +123,119 @@ body { font-family: var(--font-sans); background: var(--blackbg); color: var(--w
 .border-gray-800 { border-color: var(--border-color); }
 .rounded { border-radius: 8px; }
 
-.w-64 { width: 16rem; }
-.w-10 { width: 2.5rem; }
-.h-10 { height: 2.5rem; }
+w-64 { width: 16rem; }
+w-10 { width: 2.5rem; }
+h-10 { height: 2.5rem; }
 
-.block { display: block; }
-.text-center { text-align: center; }
-.font-semibold { font-weight: 600; }
-.font-serif { font-family: var(--font-serif); }
+block { display: block; }
+text-center { text-align: center; }
+font-semibold { font-weight: 600; }
+font-serif { font-family: var(--font-serif); }
 
-/* Buttons and inputs */
-button, .btn {
-	background: transparent; color: var(--white); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;
+/* Bevelled, rounded rectangles for cards, panels, buttons */
+/* Neon bevelled rectangles for cards, panels, buttons */
+/* Bevelled, rounded rectangles for cards, panels, buttons */
+.bevelled {
+	background: var(--clr-surface-a10);
+	border-radius: 16px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+	border: 1.5px solid var(--border-color);
+	padding: 1.5rem;
+	transition: box-shadow 0.2s, border-color 0.2s;
 }
-input[type="text"], input[type="password"], textarea, input[type="file"] {
-	background: var(--white); border: 1px solid var(--border-color); padding: 0.5rem; border-radius: 6px; width: 100%;
+.bevelled:hover {
+	box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+	border-color: var(--clr-primary-a30);
+}
+
+/* Button styles */
+button, .btn {
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: 600;
+	border-radius: 12px;
+	padding: 0.6em 1.4em;
+	background: var(--clr-primary-a20);
+	color: var(--clr-light-a0);
+	border: none;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+	cursor: pointer;
+	transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+button:hover, .btn:hover {
+	background: var(--clr-primary-a30);
+	box-shadow: 0 2px 8px rgba(80,29,50,0.18);
+	transform: translateY(-2px) scale(1.04);
+}
+button:active, .btn:active {
+	transform: scale(0.98);
+	box-shadow: 0 1px 2px rgba(80,29,50,0.18);
+}
+
+/* Headings for legibility */
+h1, h2, h3, h4, h5, h6 {
+	font-family: inherit;
+	font-weight: 700;
+	color: var(--clr-primary-a50);
+	margin-top: 0;
+	margin-bottom: 0.5em;
+	text-shadow: none;
+}
+
+/* Inputs */
+input[type="text"], input[type="password"], textarea, input[type="file"], select {
+	font-family: inherit;
+	font-size: 1rem;
+	border-radius: 8px;
+	border: 1.5px solid var(--border-color);
+	padding: 0.5em 1em;
+	background: var(--clr-surface-a20);
+	color: var(--clr-light-a0);
+	transition: border-color 0.2s, box-shadow 0.2s;
+	box-shadow: 0 0 0 1.5px var(--border-color);
+}
+input:focus, textarea:focus, select:focus {
+	border-color: var(--clr-primary-a30);
+	box-shadow: 0 0 8px var(--clr-primary-a30);
+	outline: none;
 }
 textarea { resize: vertical; }
 
 /* Card */
-.card { background: #000; padding: 1rem; border-radius: 8px; }
+/* Card */
+/* Card */
+.card {
+	background: var(--clr-surface-a10);
+	border-radius: 16px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+	border: 1.5px solid var(--border-color);
+	padding: 1.5rem;
+}
+
+/* Utility for friendly UI spacing */
+/* Utility for friendly UI spacing */
+/* Utility for friendly UI spacing */
+.friendly-space {
+	margin-bottom: 1.5rem;
+}
+
+/* Link styles */
+a {
+	color: var(--clr-primary-a40);
+	text-decoration: none;
+	border-bottom: 1.5px solid transparent;
+	transition: color 0.2s, border-bottom 0.2s, transform 0.1s;
+}
+a:hover {
+	color: var(--clr-primary-a50);
+	border-bottom: 1.5px solid var(--clr-primary-a50);
+	transform: scale(1.05);
+}
+a:active {
+	color: var(--clr-primary-a20);
+	border-bottom: 1.5px solid var(--clr-primary-a20);
+	transform: scale(0.97);
+}
 
 /* simple utility for small text */
 .small { font-size: 0.85rem; }

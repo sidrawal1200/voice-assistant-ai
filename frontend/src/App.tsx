@@ -5,11 +5,11 @@ import Sidebar from './components/Sidebar'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-blackbg text-white font-sans">
+  <div className="min-h-screen font-sans bg-blackbg">
       <Header />
       <div className="flex">
         <Sidebar />
-        <main className="flex-1 p-8 bg-surface min-h-screen">
+      <main className="flex-1 p-6 bevelled">
           <Outlet />
         </main>
       </div>

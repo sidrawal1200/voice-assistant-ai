@@ -11,8 +11,8 @@ export default function Header() {
     navigate('/login')
   }
 
-  return (
-    <header className="flex items-center justify-between px-8 py-4 border-b border-gray-800">
+    return (
+      <header className="w-full bevelled flex items-center justify-between friendly-space" style={{ borderRadius: '16px 16px 0 0', marginBottom: '0.5rem', background: 'var(--surface)' }}>
       <div className="flex items-center gap-4">
         <div className="text-2xl font-serif">VoicePortal</div>
         <div className="text-sm text-muted">Manage your AI assistant</div>

@@ -11,7 +11,7 @@ const items = [
 
 export default function Sidebar() {
   return (
-    <aside className="w-64 p-6 border-r border-gray-800">
+    <aside className="w-64 h-full bevelled flex flex-col gap-4" style={{ minHeight: 'calc(100vh - 64px)', background: 'var(--surface)' }}>
       <nav className="flex flex-col gap-3">
         {items.map((it) => (
           <NavLink
