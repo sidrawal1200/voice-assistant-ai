@@ -1,0 +1,90 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+	--blackbg: #0B0B0B;
+	--surface: #111111;
+	--muted: #E6E6E6;
+	--white: #FFFFFF;
+	--border-color: #1f1f1f;
+	--font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	--font-serif: 'Playfair Display', serif;
+}
+
+/* Basic page reset */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body { font-family: var(--font-sans); background: var(--blackbg); color: var(--white); }
+
+/* Typography */
+.font-serif { font-family: var(--font-serif); }
+.text-3xl { font-size: 1.875rem; line-height: 1.2; }
+.text-2xl { font-size: 1.5rem; }
+.text-sm { font-size: 0.875rem; }
+.text-muted { color: var(--muted); }
+.text-white { color: var(--white); }
+
+/* Layout utilities used by the app (small subset copied from Tailwind-like utilities) */
+.min-h-screen { min-height: 100vh; }
+.bg-blackbg { background: var(--blackbg); }
+.bg-surface { background: var(--surface); }
+.bg-black { background: #000; }
+.font-sans { font-family: var(--font-sans); }
+.p-6 { padding: 1.5rem; }
+.p-4 { padding: 1rem; }
+.px-8 { padding-left: 2rem; padding-right: 2rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.max-w-md { max-width: 28rem; }
+
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.flex-1 { flex: 1 1 0%; }
+.flex-col { flex-direction: column; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+
+.grid { display: grid; }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.gap-6 { grid-gap: 1.5rem; }
+
+.border-b { border-bottom: 1px solid var(--border-color); }
+.border-r { border-right: 1px solid var(--border-color); }
+.border { border: 1px solid var(--border-color); }
+.border-gray-800 { border-color: var(--border-color); }
+.rounded { border-radius: 8px; }
+
+.w-64 { width: 16rem; }
+.w-10 { width: 2.5rem; }
+.h-10 { height: 2.5rem; }
+
+.block { display: block; }
+.text-center { text-align: center; }
+.font-semibold { font-weight: 600; }
+.font-serif { font-family: var(--font-serif); }
+
+/* Buttons and inputs */
+button, .btn {
+	background: transparent; color: var(--white); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;
+}
+input[type="text"], input[type="password"], textarea, input[type="file"] {
+	background: var(--white); border: 1px solid var(--border-color); padding: 0.5rem; border-radius: 6px; width: 100%;
+}
+textarea { resize: vertical; }
+
+/* Card */
+.card { background: #000; padding: 1rem; border-radius: 8px; }
+
+/* simple utility for small text */
+.small { font-size: 0.85rem; }
+
